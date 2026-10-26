@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha Estante</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Minha Estante</h1>
+    <p>Catálogo pessoal de livros</p>
+  </header>
+
+  <main class="layout">
+    <aside class="lateral">
+      <form id="form-livro" novalidate>
+        <h2>Cadastrar livro</h2>
+
+        <label for="titulo">Título</label>
+        <input id="titulo" type="text" autocomplete="off">
+        <small class="erro" id="erro-titulo"></small>
+
+        <label for="categoria">Categoria</label>
+        <select id="categoria">
+          <option value="">Selecione…</option>
+          <option>Romance</option>
+          <option>Ficção científica</option>
+          <option>Fantasia</option>
+          <option>Técnico</option>
+          <option>Biografia</option>
+        </select>
+        <small class="erro" id="erro-categoria"></small>
+
+        <label for="ano">Ano de publicação</label>
+        <input id="ano" type="number" inputmode="numeric">
+        <small class="erro" id="erro-ano"></small>
+
+        <label class="check">
+          <input id="lido" type="checkbox"> Já li este livro
+        </label>
+
+        <button type="submit" class="primario">Adicionar à estante</button>
+      </form>
+
+      <section aria-labelledby="t-resumo" class="resumo">
+        <h2 id="t-resumo">Resumo</h2>
+        <dl>
+          <div><dt>Total</dt><dd id="res-total">0</dd></div>
+          <div><dt>Lidos</dt><dd id="res-lidos">0</dd></div>
+          <div><dt>Para ler</dt><dd id="res-pendentes">0</dd></div>
+        </dl>
+      </section>
+    </aside>
+
+    <section class="catalogo" aria-labelledby="t-catalogo">
+      <h2 id="t-catalogo">Seus livros</h2>
+      <div class="filtros">
+        <input id="busca" type="search" placeholder="Buscar por título" aria-label="Buscar por título">
+        <select id="filtro-categoria" aria-label="Filtrar por categoria">
+          <option value="">Todas as categorias</option>
+        </select>
+      </div>
+      <p id="vazio" class="vazio" hidden></p>
+      <ul id="lista" class="lista"></ul>
+    </section>
+  </main>
+
+  <script src="dist/main.js" defer></script>
+</body>
+</html>
